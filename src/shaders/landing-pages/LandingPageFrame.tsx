@@ -52,7 +52,7 @@ export function applyBackgroundPresentation(
 ) {
   const document = frame?.contentDocument;
   // The iframe may still be mid-navigation (no <html> yet); onLoad re-runs this.
-  if (!document?.documentElement || !document.head) return;
+  if (!frame || !document?.documentElement || !document.head) return;
 
   document.getElementById(BACKGROUND_PRESENTATION_STYLE_ID)?.remove();
   document.querySelectorAll("[data-threeui-background-layer]").forEach((element) => {
